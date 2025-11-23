@@ -1,0 +1,214 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --font-size: 16px;
+  --background: #0a0a0f;
+  --foreground: #f0f0f5;
+  --card: rgba(15, 15, 25, 0.7);
+  --card-foreground: #f0f0f5;
+  --popover: rgba(15, 15, 25, 0.95);
+  --popover-foreground: #f0f0f5;
+  --primary: #00d9ff;
+  --primary-foreground: #0a0a0f;
+  --secondary: #a855f7;
+  --secondary-foreground: #f0f0f5;
+  --muted: rgba(100, 100, 120, 0.3);
+  --muted-foreground: #a0a0b0;
+  --accent: #7c3aed;
+  --accent-foreground: #f0f0f5;
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+  --border: rgba(100, 100, 150, 0.2);
+  --input: rgba(100, 100, 150, 0.15);
+  --input-background: rgba(15, 15, 30, 0.6);
+  --switch-background: rgba(100, 100, 120, 0.4);
+  --font-weight-medium: 500;
+  --font-weight-normal: 400;
+  --ring: rgba(0, 217, 255, 0.5);
+  --chart-1: #00d9ff;
+  --chart-2: #a855f7;
+  --chart-3: #7c3aed;
+  --chart-4: #06b6d4;
+  --chart-5: #8b5cf6;
+  --radius: 1rem;
+  --neon-cyan: #00d9ff;
+  --neon-purple: #a855f7;
+  --neon-blue: #7c3aed;
+  --glass-bg: rgba(15, 15, 30, 0.4);
+  --glass-border: rgba(100, 100, 150, 0.3);
+}
+
+.dark {
+  --background: #0a0a0f;
+  --foreground: #f0f0f5;
+  --card: rgba(15, 15, 25, 0.7);
+  --card-foreground: #f0f0f5;
+  --popover: rgba(15, 15, 25, 0.95);
+  --popover-foreground: #f0f0f5;
+  --primary: #00d9ff;
+  --primary-foreground: #0a0a0f;
+  --secondary: #a855f7;
+  --secondary-foreground: #f0f0f5;
+  --muted: rgba(100, 100, 120, 0.3);
+  --muted-foreground: #a0a0b0;
+  --accent: #7c3aed;
+  --accent-foreground: #f0f0f5;
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+  --border: rgba(100, 100, 150, 0.2);
+  --input: rgba(100, 100, 150, 0.15);
+  --ring: rgba(0, 217, 255, 0.5);
+  --font-weight-medium: 500;
+  --font-weight-normal: 400;
+  --chart-1: #00d9ff;
+  --chart-2: #a855f7;
+  --chart-3: #7c3aed;
+  --chart-4: #06b6d4;
+  --chart-5: #8b5cf6;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-input-background: var(--input-background);
+  --color-switch-background: var(--switch-background);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-neon-cyan: var(--neon-cyan);
+  --color-neon-purple: var(--neon-purple);
+  --color-neon-blue: var(--neon-blue);
+  --color-glass-bg: var(--glass-bg);
+  --color-glass-border: var(--glass-border);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    background: linear-gradient(135deg, #0a0a0f 0%, #0f0a1f 50%, #0a0a0f 100%);
+    background-attachment: fixed;
+  }
+}
+
+/**
+ * Base typography. This is not applied to elements which have an ancestor with a Tailwind text class.
+ */
+@layer base {
+  :where(:not(:has([class*=" text-"]), :not(:has([class^="text-"])))) {
+    h1 {
+      font-size: var(--text-2xl);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+    }
+
+    h2 {
+      font-size: var(--text-xl);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+    }
+
+    h3 {
+      font-size: var(--text-lg);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+    }
+
+    h4 {
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+    }
+
+    p {
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-normal);
+      line-height: 1.5;
+    }
+
+    label {
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+    }
+
+    button {
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+    }
+
+    input {
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-normal);
+      line-height: 1.5;
+    }
+  }
+}
+
+html {
+  font-size: var(--font-size);
+  scroll-behavior: smooth;
+}
+
+/* Custom utility classes for the futuristic theme */
+@layer utilities {
+  .glass {
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+  }
+
+  .glow-cyan {
+    box-shadow: 0 0 20px rgba(0, 217, 255, 0.3);
+  }
+
+  .glow-purple {
+    box-shadow: 0 0 20px rgba(168, 85, 247, 0.3);
+  }
+
+  .glow-blue {
+    box-shadow: 0 0 20px rgba(124, 58, 237, 0.3);
+  }
+
+  .text-gradient {
+    background: linear-gradient(135deg, #00d9ff 0%, #a855f7 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .border-gradient {
+    border-image: linear-gradient(135deg, #00d9ff, #a855f7) 1;
+  }
+}
